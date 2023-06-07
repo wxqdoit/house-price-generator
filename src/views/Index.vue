@@ -39,22 +39,7 @@
                             </div>
                         </div>
 
-                        <div class="item-box">
-                            <div class="list-item-title flex">
-                                <span>楼层</span>
-                                <el-button type="primary" size="mini" round @click="handleAdd('floor','楼层')">增加</el-button>
-                            </div>
-                            <div class="flex-column gap-6">
-                                <div v-for="(floorItem,i) in floor">
-                                    <el-input placeholder="Please input" v-model="floorItem.score">
-                                        <template slot="prepend">{{ floorItem.name }}</template>
-                                        <template slot="append">
-                                            <div @click="handRemove('floor',i)"><i class="el-icon-delete"></i></div>
-                                        </template>
-                                    </el-input>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="item-box">
                             <div class="list-item-title flex">
                                 <span>景观</span>
@@ -83,6 +68,23 @@
                                         <template slot="prepend">{{ houseTypeItem.name }}</template>
                                         <template slot="append">
                                             <div @click="handRemove('houseType',i)"><i class="el-icon-delete"></i></div>
+                                        </template>
+                                    </el-input>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item-box">
+                            <div class="list-item-title flex">
+                                <span>楼层</span>
+                                <el-button type="primary" size="mini" round @click="handleAdd('floor','楼层')">增加</el-button>
+                            </div>
+                            <div class="flex-column gap-6">
+                                <div v-for="(floorItem,i) in floor">
+                                    <el-input placeholder="Please input" v-model="floorItem.score">
+                                        <template slot="prepend">{{ floorItem.name }}</template>
+                                        <template slot="append">
+                                            <div @click="handRemove('floor',i)"><i class="el-icon-delete"></i></div>
                                         </template>
                                     </el-input>
                                 </div>
@@ -147,7 +149,34 @@
                             </div>
                         </div>
 
-                        <div></div>
+                        <div class="item-box">
+                            <div class="list-item-title">
+                                <span>房号配置</span>
+                            </div>
+                            <div class="flex-column gap-6">
+                                <div v-for="count in Number(baseArg.singleFloorHouseholds || 0)">
+                                    <div class="select-box flex gap-6">
+                                        <div>{{count}}号房</div>
+                                        <el-select v-model="baseArg.singleFloorHouseholds" placeholder="Please select">
+                                            <el-option v-for="item in HouseholdsList" :label="item.name" :value="item.number"></el-option>
+                                        </el-select>
+                                        <el-select v-model="baseArg.singleFloorHouseholds" placeholder="Please select">
+                                            <el-option v-for="item in HouseholdsList" :label="item.name" :value="item.number"></el-option>
+                                        </el-select>
+                                        <el-select v-model="baseArg.singleFloorHouseholds" placeholder="Please select">
+                                            <el-option v-for="item in HouseholdsList" :label="item.name" :value="item.number"></el-option>
+                                        </el-select>
+                                        <el-select v-model="baseArg.singleFloorHouseholds" placeholder="Please select">
+                                            <el-option v-for="item in HouseholdsList" :label="item.name" :value="item.number"></el-option>
+                                        </el-select>
+                                    </div>
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
 
